@@ -65,42 +65,8 @@ Login: `guest / guest`
 
 ---
 
-### ✅ 4. Configure Application Properties
 
-Rename:
-```bash
-src/main/resources/application.properties.example → application.properties
-```
-
-Then update it:
-
-```properties
-# PostgreSQL
-spring.datasource.url=jdbc:postgresql://localhost:5432/notifications
-spring.datasource.username=postgres
-spring.datasource.password=yourpassword
-
-# RabbitMQ
-spring.rabbitmq.host=localhost
-spring.rabbitmq.port=5672
-
-# Email via Gmail SMTP
-spring.mail.host=smtp.gmail.com
-spring.mail.port=587
-spring.mail.username=your.email@gmail.com
-spring.mail.password=your_gmail_app_password
-spring.mail.properties.mail.smtp.auth=true
-spring.mail.properties.mail.smtp.starttls.enable=true
-
-# Twilio (get from Twilio console)
-twilio.account.sid=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-twilio.auth.token=xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-twilio.phone.number=+1XXXXXXXXXX
-```
-
----
-
-### ✅ 5. Build and Run the App
+### ✅ 4. Build and Run the App
 
 ```bash
 ./mvnw clean install
@@ -133,6 +99,7 @@ GET http://localhost:8080/notifications/users/1
 ## 📌 Assumptions Made
 
 - The `userId` maps to contact info **manually**, not fetched from a user service.
+- Application properties all properties are on trial only
 - Twilio (Free Tier) only allows sending SMS to **verified phone numbers**.
 - Email is sent using **Gmail SMTP with App Passwords**, not OAuth.
 - All notifications are processed asynchronously using **RabbitMQ**.
