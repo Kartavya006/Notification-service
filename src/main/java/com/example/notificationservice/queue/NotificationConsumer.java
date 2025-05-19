@@ -23,11 +23,11 @@ public class NotificationConsumer {
     private NotificationRepository repo;
 
     @RabbitListener(queues = "notificationQueue")
-    @Retryable(
-            value = Exception.class,
-            maxAttempts = 3,
-            backoff = @Backoff(delay = 2000)
-    )
+//    @Retryable(
+//            value = Exception.class,
+//            maxAttempts = 3,
+//            backoff = @Backoff(delay = 2000)
+//    )
     public void process(Notification notif) {
         System.out.println("Received from queue: " + notif.getType() + " => " + notif.getMessage());
         try {

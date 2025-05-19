@@ -13,7 +13,7 @@ public class SmsService {
     private String twilioNumber;
 
     public void send(Notification notif) {
-        String toPhoneNumber = "+918651803465";
+        String toPhoneNumber = "+919936514066";
         try {
             Message message = Message.creator(
                     new PhoneNumber(toPhoneNumber),
